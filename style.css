@@ -1,0 +1,201 @@
+:root {
+  --scale: 1.5
+  --y: 0;
+  overflow:scroll;
+}
+:root body {
+  margin: 0;
+  background-color: black;
+  outline: none;
+  border: none;
+}
+:root body #wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+:root body #wrapper #image {
+  width: 100vw;
+  height: 200vh;
+  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+  background-size: cover;
+  transform: translateX(var(--x)) translateY(var(--y)) scale(var(--scale));
+  transition: ease-out 0.7s;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+  #button {
+  display: inline-block;
+  background-color: #fdfdfc;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 100px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  box-shadow: 0px 0px 8px 7px rgba(0,0,0,0.7)
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: rgb(1, 177, 247);
+}
+#button:hover {
+  cursor: pointer;
+  background-color: rgb(253, 252, 252);
+  box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.75);
+  text-decoration: none;
+}
+#button:active {
+  background-color: rgb(73, 72, 72);
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for the content section */
+
+  #button {
+    margin: 30px;
+  }
+  
+  /* basically all styling from now on */
+  .menu_toggle {
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    cursor: pointer;
+    width: 100px;
+    height: 80px;
+    background-color: rgb(1, 177, 247);
+    border-bottom-right-radius: 100%;
+  }
+  .menu_toggle:active i {
+    opacity: 0.8;
+  }
+  .menu_toggle i {
+    color: #f0f0f0;
+  }
+  .menu_toggle .menu_open,
+  .menu_toggle .menu_close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -12px;
+    transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  }
+  .menu_toggle .menu_open {
+    transform-origin: -100px -100px;
+  }
+  .menu_toggle .menu_close {
+    transform: rotate(20deg);
+    transform-origin: -100px -160px;
+  }
+  
+  .menu_items {
+    position: fixed;
+    bottom: 0;
+    left: 50px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu_items li {
+    height: 60px;
+    margin-bottom: 30px;
+    max-width: fit-content;
+    transform: translateX(-300px);
+    transition: transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+  }
+  .menu_items li:nth-child(2) {
+    margin-left: 40px;
+  }
+  .menu_items li:nth-child(3) {
+    margin-left: 80px;
+  }
+  .menu_items li:nth-child(4) {
+    margin-left: 120px;
+  }
+  .menu_items a {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    transition: color 0.2s;
+  }
+  .menu_items a .icon {
+    position: relative;
+    display: inline-block;
+    margin-right: 25px;
+    color: #f0f0f0;
+  }
+  .menu_items a .icon:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-left: -32px;
+    margin-top: -32px;
+    border-radius: 100%;
+    border: 2px solid #000000;
+    transition: border-color 0.2s;
+  }
+  .menu_items li:hover {
+    color: #f0f0f0;
+  }
+  .menu_items li:hover .icon:after {
+    border-color: #000000;
+  }
+  .menu_items li:active .icon {
+    color: #07eeff;
+  }
+  .menu_items li:hover .icon {
+    transform: scale(1.1);
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #050505, 0 0 55px #000000, 0 0 75px #000000,  0 0 85px #000000,  0 0 100px #000000;
+  }
+  .shazam .content {
+    transform: rotate(-30deg);
+  }
+  .shazam .menu_open {
+    transform: rotate(-20deg);
+  }
+  .shazam .menu_close {
+    transform: rotate(0);
+  }
+  .shazam .menu_items li {
+    transform: translateX(0);
+    transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .shazam .menu_items li:nth-child(2) {
+    transition-delay: 0.47s;
+  }
+  .shazam .menu_items li:nth-child(3) {
+    transition-delay: 0.48s;
+  }
+ 
+.font-h4{
+    margin-left: 50px;
+    margin-top: -23px;
+    font-family: 'Fredoka One', cursive;
+    max-width: fit-content;
+    font-size: larger;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #050505, 0 0 55px #000000, 0 0 75px #000000,  0 0 85px #000000,  0 0 100px #000000;
+}
